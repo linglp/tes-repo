@@ -9,6 +9,7 @@ python = "^3.9"
 myst-parser = "^0.18.0"
 Sphinx = "^5.1.1"
 cleo = "^0.8.1"
+sphinxcontrib-mermaid = "^0.7.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
