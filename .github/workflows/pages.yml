@@ -31,7 +31,7 @@ jobs:
         uses: actions/configure-pages@v2
       - name: Build documentation 
       - name: Build with ReadtheDocs
-        run: |
+      - run: |
          cd docs 
          make html 
          cd ../
