@@ -21,3 +21,4 @@ This repo is for testing out the functionality of using sphinx to create documen
 
 7. run `make html` again
 8. open `index.html` to see the documentation being built
+9. see example [here](https://github.com/serra/sphinx-with-markdown)
