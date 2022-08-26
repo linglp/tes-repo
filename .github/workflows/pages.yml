@@ -45,7 +45,10 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root
       - name: Build documentation 
-        run: sphinx-build doc _build
+        run: |
+              cd docs
+              make html 
+              cd ../
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
