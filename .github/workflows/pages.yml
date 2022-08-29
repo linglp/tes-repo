@@ -3,7 +3,7 @@ name: Deploy documentation to github pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["develop-testDoc2"] # for testing
+    branches: ["develop-testDoc3"] # for testing
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
