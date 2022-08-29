@@ -69,7 +69,7 @@ name: Deploy documentation to github pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"] # for testing
+    branches: ["develop-testDoc"] # for testing
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -121,9 +121,10 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          branch: main
+          token: ${{ secrets.ACCESS_TOKEN }}
+          branch: develop-testDoc
           folder: gh-pages
+          clean: true
       
       # - name: Build package documentation
       #   run: pipx run tox -e docs
