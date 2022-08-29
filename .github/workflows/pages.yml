@@ -64,12 +64,14 @@
 #       - name: Deploy to GitHub Pages
 #         id: deployment
 #         uses: actions/deploy-pages@v1
+
+
 name: Deploy documentation to github pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["develop-testDoc"] # for testing
+    branches: ["develop-testDoc2"] # for testing
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -81,9 +83,9 @@ permissions:
   id-token: write
 
 # Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: true
 
 jobs:
   # Build job
@@ -112,19 +114,23 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Build documentation
         run: |
-          mkdir gh-pages
-          touch gh-pages/.nojekyll
           cd docs/source
           poetry run sphinx-build -b html . ../_build
-          cp -r ../_build/* ../../gh-pages      
+          touch ../_build/.nojekyll  
+          cd ../../
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v1
+      #   with:
+      #     path: 'docs/_build/html'
       - name: Deploy documentation
         if: ${{ github.event_name == 'push' }}
-        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
-          branch: develop-testDoc
-          folder: gh-pages
+          branch: develop-testDoc2
+          folder: docs/_build
           clean: true
+      
       
       # - name: Build package documentation
       #   run: pipx run tox -e docs
