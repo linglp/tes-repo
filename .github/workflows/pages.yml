@@ -121,6 +121,7 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           branch: main
           folder: gh-pages
       
