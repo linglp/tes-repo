@@ -19,7 +19,7 @@ concurrency:
     ${{ github.sha }}
   cancel-in-progress: true
 jobs:
-  pypi_release:
+  trigger-frontend:
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
