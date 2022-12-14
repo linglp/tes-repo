@@ -39,6 +39,6 @@ jobs:
           curl -X POST \
           -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
           -H "Accept: application/vnd.github+json" \
-          https://api.github.com/repos/Sage-Bionetworks/data_curator/dispatches \
+          https://api.github.com/repos/linglp/test-frontend/dispatches \
           -d '{"event_type": "trigger-frontend", "client_payload": { "commit-sha": "'${{ github.sha }}'",  "release-version": "${{ env.RELEASE_VERSION }}"}'
 
