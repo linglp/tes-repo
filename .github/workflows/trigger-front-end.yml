@@ -37,6 +37,7 @@ jobs:
       #       Open PRs in DCA
       #----------------------------------------------
       - name: Trigger DCA testing instance 
+        if: ${{ env.RELEASE_VERSION != '' }} || github.ref_name == develop
         run: |
           curl -X POST \
           -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
