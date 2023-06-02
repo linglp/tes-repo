@@ -2,7 +2,7 @@ name: Test schematic API
 
 on:
   pull_request_review:
-    types: [submitted, edited]
+    types: [submitted]
   workflow_dispatch:
     inputs:
       perform_benchmarking:
