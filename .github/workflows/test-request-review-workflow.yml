@@ -1,6 +1,7 @@
 name: Test schematic API
 
 on:
+  push:
   pull_request_review:
     types: [submitted]
   workflow_dispatch:
