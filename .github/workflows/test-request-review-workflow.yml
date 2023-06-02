@@ -1,7 +1,6 @@
 name: Test schematic API
 
 on:
-  push:
   pull_request_review:
     types: [submitted]
   workflow_dispatch:
@@ -52,3 +51,6 @@ jobs:
       - name: Run API tests + Exclude Benchmarks
         if: ${{ false == inputs.perform_benchmarking }}
         run: echo "this seems okay"
+
+
+        
